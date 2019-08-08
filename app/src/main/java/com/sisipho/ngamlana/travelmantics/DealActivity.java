@@ -47,9 +47,9 @@ public class DealActivity extends AppCompatActivity {
         firebaseDatabase = FireBaseUtil.firebaseDatabase;
         databaseReference = FireBaseUtil.databaseReference;
 
-        textTitle = findViewById(R.id.txt_title);
-        textDescription = findViewById(R.id.txt_description);
-        textPrice = findViewById(R.id.txt_price);
+        textTitle = findViewById(R.id.textView_title);
+        textDescription = findViewById(R.id.textView_description);
+        textPrice = findViewById(R.id.textView_price);
         buttonImage = findViewById(R.id.button_image);
         imageView = findViewById(R.id.imageView_deal_image);
         Intent intent = getIntent();
