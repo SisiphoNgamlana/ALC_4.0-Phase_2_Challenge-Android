@@ -16,8 +16,6 @@ import com.firebase.ui.auth.AuthUI;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 
-import java.util.ArrayList;
-
 public class ListActivity extends AppCompatActivity {
 
     @Override
@@ -64,13 +62,13 @@ public class ListActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        FireBaseUtil.openFireBaseReference("traveldeals", this);
-        RecyclerView recyclerView = findViewById(R.id.recyclerview_deals);
-        final DealAdapter dealAdapter = new DealAdapter(this);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, RecyclerView.VERTICAL, false);
-        recyclerView.setLayoutManager(linearLayoutManager);
-        recyclerView.setAdapter(dealAdapter);
-        FireBaseUtil.attachListener();
+//        FireBaseUtil.openFireBaseReference("traveldeals", this);
+//        RecyclerView recyclerView = findViewById(R.id.recyclerView_trade_deals);
+////        final DealAdapter dealAdapter = new DealAdapter(this);
+//        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, RecyclerView.VERTICAL, false);
+//        recyclerView.setLayoutManager(linearLayoutManager);
+//        recyclerView.setAdapter(dealAdapter);
+//        FireBaseUtil.attachListener();
     }
 
     @Override

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <item android:title="@string/text_communicate">
+        <menu>
+            <item
+                android:id="@+id/nav_send"
+                android:icon="@drawable/ic_menu_send"
+                android:title="@string/menu_send" />
+            <item
+                android:id="@+id/nav_add_new"
+                android:icon="@drawable/ic_add_box_black_24dp"
+                android:enabled="false"
+                android:title="@string/text_add_new_travel_deal" />
+
+        </menu>
+    </item>
+
+</menu>
