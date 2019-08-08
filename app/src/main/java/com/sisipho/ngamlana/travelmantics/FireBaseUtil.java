@@ -1,7 +1,5 @@
 package com.sisipho.ngamlana.travelmantics;
 
-import android.app.Activity;
-import android.util.Log;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -29,7 +27,7 @@ public class FireBaseUtil {
     public static FirebaseAuth.AuthStateListener fireBaseAuthStateListener;
     public static ArrayList<TravelDeal> travelDealList;
     private static final int RC_SIGN_IN = 123;
-    private static ListActivity caller;
+    private static MainActivity caller;
     public static boolean isAdmin;
     public static FirebaseStorage firebaseStorage;
     public static StorageReference storageReference;
@@ -38,7 +36,7 @@ public class FireBaseUtil {
 
     }
 
-    public static void openFireBaseReference(String reference, final ListActivity callerActivity) {
+    public static void openFireBaseReference(String reference, final MainActivity callerActivity) {
         if (fireBaseUtil == null) {
             fireBaseUtil = new FireBaseUtil();
             firebaseDatabase = FirebaseDatabase.getInstance();
