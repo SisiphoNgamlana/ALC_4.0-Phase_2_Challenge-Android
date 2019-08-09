@@ -28,7 +28,7 @@ public class DealAdapter extends RecyclerView.Adapter<DealAdapter.DealAdapterVie
     private DatabaseReference databaseReference;
     private ChildEventListener childEventListener;
 
-    public DealAdapter(ListActivity activity) {
+    public DealAdapter(MainActivity activity) {
         FireBaseUtil.openFireBaseReference("traveldeals", activity);
         firebaseDatabase = FireBaseUtil.firebaseDatabase;
         databaseReference = FireBaseUtil.databaseReference;
@@ -97,10 +97,10 @@ public class DealAdapter extends RecyclerView.Adapter<DealAdapter.DealAdapterVie
 
         public DealAdapterViewHolder(@NonNull View itemView) {
             super(itemView);
-            textViewTitle = itemView.findViewById(R.id.textView_title);
-            textViewDescription = itemView.findViewById(R.id.textView_description);
+            textViewTitle = itemView.findViewById(R.id.textView_item_title);
+            textViewDescription = itemView.findViewById(R.id.textView_item_description);
             imageDealImage = itemView.findViewById(R.id.imageView_list_image);
-            textViewPrice = itemView.findViewById(R.id.textView_price);
+            textViewPrice = itemView.findViewById(R.id.textView_item_price);
             itemView.setOnClickListener(this);
         }
 

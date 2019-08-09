@@ -7,66 +7,66 @@
     tools:context=".DealActivity">
 
     <EditText
-        android:id="@+id/txt_title"
+        android:id="@+id/textView_title"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/txt_margin_standard"
-        android:layout_marginTop="@dimen/txt_margin_large"
-        android:layout_marginEnd="@dimen/txt_margin_standard"
+        android:layout_marginStart="@dimen/dimen_margin_standard"
+        android:layout_marginTop="@dimen/dimen_margin_large"
+        android:layout_marginEnd="@dimen/dimen_margin_standard"
         android:gravity="start|top"
-        android:hint="@string/title_hint"
+        android:hint="@string/text_title_hint"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/txt_price"
+        android:id="@+id/textView_price"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/txt_margin_standard"
-        android:layout_marginTop="@dimen/txt_margin_standard"
-        android:layout_marginEnd="@dimen/txt_margin_standard"
+        android:layout_marginStart="@dimen/dimen_margin_standard"
+        android:layout_marginTop="@dimen/dimen_margin_standard"
+        android:layout_marginEnd="@dimen/dimen_margin_standard"
         android:gravity="start|top"
-        android:hint="@string/price_hint"
+        android:hint="@string/text_price_hint"
         android:inputType="numberDecimal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_title" />
+        app:layout_constraintTop_toBottomOf="@+id/textView_title" />
 
     <EditText
-        android:id="@+id/txt_description"
+        android:id="@+id/textView_description"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/txt_margin_standard"
-        android:layout_marginTop="@dimen/txt_margin_standard"
-        android:layout_marginEnd="@dimen/txt_margin_standard"
+        android:layout_marginStart="@dimen/dimen_margin_standard"
+        android:layout_marginTop="@dimen/dimen_margin_standard"
+        android:layout_marginEnd="@dimen/dimen_margin_standard"
         android:gravity="start|top"
         app:layout_constraintEnd_toEndOf="parent"
-        android:hint="@string/description_hint"
+        android:hint="@string/text_description_hint"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_price" />
+        app:layout_constraintTop_toBottomOf="@+id/textView_price" />
 
     <Button
         android:id="@+id/button_image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/txt_margin_standard"
-        android:layout_marginLeft="@dimen/txt_margin_standard"
-        android:layout_marginTop="@dimen/txt_margin_standard"
-        android:layout_marginEnd="@dimen/txt_margin_standard"
-        android:layout_marginRight="@dimen/txt_margin_standard"
+        android:layout_marginStart="@dimen/dimen_margin_standard"
+        android:layout_marginLeft="@dimen/dimen_margin_standard"
+        android:layout_marginTop="@dimen/dimen_margin_standard"
+        android:layout_marginEnd="@dimen/dimen_margin_standard"
+        android:layout_marginRight="@dimen/dimen_margin_standard"
         android:text="@string/text_upload_image"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_description" />
+        app:layout_constraintTop_toBottomOf="@+id/textView_description" />
 
     <ImageView
         android:id="@+id/imageView_deal_image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/txt_margin_standard"
-        android:layout_marginLeft="@dimen/txt_margin_standard"
-        android:layout_marginTop="@dimen/txt_margin_large"
+        android:layout_marginStart="@dimen/dimen_margin_standard"
+        android:layout_marginLeft="@dimen/dimen_margin_standard"
+        android:layout_marginTop="@dimen/dimen_margin_large"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button_image"
