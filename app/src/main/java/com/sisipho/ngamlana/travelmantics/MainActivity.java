@@ -7,7 +7,6 @@ import com.firebase.ui.auth.AuthUI;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 
 import android.util.Log;
 import android.view.MenuInflater;
@@ -22,7 +21,6 @@ import android.view.MenuItem;
 import com.google.android.material.navigation.NavigationView;
 
 import androidx.drawerlayout.widget.DrawerLayout;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -126,6 +124,7 @@ public class MainActivity extends AppCompatActivity
                             }
                         });
                 FireBaseUtil.detachListener();
+                invalidateOptionsMenu();
         }
         return super.onOptionsItemSelected(item);
     }
@@ -138,7 +137,13 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
         switch (id) {
             case R.id.nav_send:
-
+                String subject = "Travel Mantics app";
+                String body = "Hi, check out some awesome travel deals on the Travel Mantics app";
+                Intent emailIntent = new Intent(android.content.Intent.ACTION_SEND);
+                emailIntent.setType("plain/text");
+                emailIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, subject);
+                emailIntent.putExtra(android.content.Intent.EXTRA_TEXT, body);
+                startActivity(emailIntent);
                 break;
             case R.id.nav_add_new:
                 Intent intent = new Intent(this, DealActivity.class);
