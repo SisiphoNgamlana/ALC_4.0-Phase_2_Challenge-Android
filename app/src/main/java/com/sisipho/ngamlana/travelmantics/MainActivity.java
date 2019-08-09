@@ -1,13 +1,13 @@
 package com.sisipho.ngamlana.travelmantics;
 
 import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Bundle;
 
 import com.firebase.ui.auth.AuthUI;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 
 import android.util.Log;
 import android.view.MenuInflater;
@@ -22,7 +22,6 @@ import android.view.MenuItem;
 import com.google.android.material.navigation.NavigationView;
 
 import androidx.drawerlayout.widget.DrawerLayout;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -100,7 +99,7 @@ public class MainActivity extends AppCompatActivity
         MenuInflater menuInflater = getMenuInflater();
         menuInflater.inflate(R.menu.list_activity_menu, menu);
         MenuItem insertMenu = menu.findItem(R.id.insert_menu);
-        if (FireBaseUtil.isAdmin == true) {
+        if (FireBaseUtil.isAdmin) {
             insertMenu.setVisible(true);
         } else {
             insertMenu.setVisible(false);
@@ -126,23 +125,40 @@ public class MainActivity extends AppCompatActivity
                             }
                         });
                 FireBaseUtil.detachListener();
+                invalidateOptionsMenu();
         }
         return super.onOptionsItemSelected(item);
     }
 
-
-    @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
         switch (id) {
             case R.id.nav_send:
-
+                String subject = getString(R.string.text_email_subject);
+                String body = getString(R.string.text_email_body);
+                Intent emailIntent = new Intent(android.content.Intent.ACTION_SEND);
+                emailIntent.setType("plain/text");
+                emailIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, subject);
+                emailIntent.putExtra(android.content.Intent.EXTRA_TEXT, body);
+                startActivity(emailIntent);
                 break;
             case R.id.nav_add_new:
                 Intent intent = new Intent(this, DealActivity.class);
                 startActivity(intent);
+                break;
+            case R.id.nav_logout:
+                AuthUI.getInstance()
+                        .signOut(this)
+                        .addOnCompleteListener(new OnCompleteListener<Void>() {
+                            public void onComplete(@NonNull Task<Void> task) {
+                                // ...
+                                Log.d("Logout", "User logged out");
+                                FireBaseUtil.attachListener();
+                            }
+                        });
+                FireBaseUtil.detachListener();
                 break;
         }
         DrawerLayout drawer = findViewById(R.id.drawer_layout);

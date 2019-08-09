@@ -17,4 +17,7 @@
     <string name="menu_save">Save</string>
     <string name="menu_delete">Delete</string>
     <string name="text_communicate">Communicate</string>
+    <string name="text_email_subject">Travel Mantics app</string>
+    <string name="text_email_body">Hi, check out some awesome travel deals on the Travel Mantics app</string>
+    <string name="text_profile">Profile</string>
 </resources>
