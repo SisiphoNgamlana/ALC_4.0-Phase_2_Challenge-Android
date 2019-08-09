@@ -15,12 +15,13 @@ import static androidx.test.espresso.Espresso.openActionBarOverflowOrOptionsMenu
 import static androidx.test.espresso.action.ViewActions.click;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
 import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
+import static androidx.test.espresso.matcher.ViewMatchers.isEnabled;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
 import static androidx.test.platform.app.InstrumentationRegistry.getInstrumentation;
 import static org.hamcrest.core.IsNot.not;
 
-public class DealActivityAdminLoggedInTest {
+public class DealActivityAdminUserTest {
 
     @BeforeClass
     public static void setup2() {
@@ -28,44 +29,20 @@ public class DealActivityAdminLoggedInTest {
     }
 
     @Rule
-    public ActivityTestRule<DealActivity> dealActivityActivityTestRule = new ActivityTestRule(DealActivity.class);
-    private static List<TravelDeal> travelDealList;
-
-    @Before
-    public void setup() {
-        travelDealList = FireBaseUtil.travelDealList;
-    }
+    public ActivityTestRule<DealActivity> dealActivityActivityTestRule = new ActivityTestRule<>(DealActivity.class);
 
     @Test
     public void onCreate() {
-//        onView(withId(R.id.recyclerView_trade_deals)).perform(RecyclerViewActions.actionOnItemAtPosition(index, click()));
-//        onView(withId(R.id.textView_title)).check(matches(withText(travelDeal.getTitle())));
-//        onView(withId(R.id.textView_title)).check(matches(not(isEnabled())));
-//        onView(withId(R.id.textView_description)).check(matches(withText(travelDeal.getDescription())));
-//        onView(withId(R.id.textView_description)).check(matches(not(isEnabled())));
-//        onView(withId(R.id.textView_price)).check(matches(withText(travelDeal.getPrice())));
-//        onView(withId(R.id.textView_price)).check(matches(not(isEnabled())));
-
+        onView(withId(R.id.textView_title)).check(matches(isEnabled())).check(matches(isDisplayed()));
+        onView(withId(R.id.textView_description)).check(matches(isEnabled())).check(matches(isDisplayed()));
+        onView(withId(R.id.textView_price)).check(matches(isEnabled())).check(matches(isDisplayed()));
     }
-//
-//    @Test
-//    public void onOptionsItemSelected() {
-//    }
 
     @Test
     public void onCreateOptionsMenu() {
         onView(withText(R.string.menu_save)).check(matches(isDisplayed()));
-
         openActionBarOverflowOrOptionsMenu(getInstrumentation().getTargetContext());
         onView(withText(R.string.menu_delete)).check(matches(isDisplayed()));
     }
 
-    @Test
-    public void onActivityResult() {
-    }
-
-    @AfterClass
-    public static void tearDown() {
-        FireBaseUtil.isAdmin = false;
-    }
 }

@@ -27,7 +27,7 @@ import static org.hamcrest.core.IsNot.not;
 public class MainActivityNormalUserTest {
 
     @Rule
-    public ActivityTestRule<MainActivity> mainActivityActivityTestRule = new ActivityTestRule(MainActivity.class);
+    public ActivityTestRule<MainActivity> mainActivityActivityTestRule = new ActivityTestRule<>(MainActivity.class);
     private static List<TravelDeal> travelDealList;
 
     @Before
@@ -43,7 +43,6 @@ public class MainActivityNormalUserTest {
         onView(withId(R.id.nav_send)).check(matches(isEnabled()));
         onView(withId(R.id.drawer_layout)).check(matches(isOpen()));
         onView(withId(R.id.drawer_layout)).perform(DrawerActions.close());
-
 
         for (int index = 0; index < travelDealList.size(); index++) {
             TravelDeal travelDeal = travelDealList.get(index);

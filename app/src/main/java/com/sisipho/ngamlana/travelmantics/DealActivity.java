@@ -133,7 +133,7 @@ public class DealActivity extends AppCompatActivity {
     }
 
     private void backToListActivity() {
-        Intent intent = new Intent(this, ListActivity.class);
+        Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
 

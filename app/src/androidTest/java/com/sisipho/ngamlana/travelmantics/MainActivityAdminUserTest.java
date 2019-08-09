@@ -22,11 +22,18 @@ import static androidx.test.espresso.matcher.ViewMatchers.isEnabled;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
 import static androidx.test.platform.app.InstrumentationRegistry.getInstrumentation;
+import static org.hamcrest.Matchers.not;
 
 public class MainActivityAdminUserTest {
 
     @Rule
-    public ActivityTestRule<MainActivity> mainActivityActivityTestRule = new ActivityTestRule(MainActivity.class);
+    public ActivityTestRule<MainActivity> mainActivityActivityTestRule = new ActivityTestRule<>(MainActivity.class);
+    private static List<TravelDeal> travelDealList;
+
+    @Before
+    public void setup() {
+        travelDealList = FireBaseUtil.travelDealList;
+    }
 
     @Test
     public void onResume() {
@@ -34,12 +41,20 @@ public class MainActivityAdminUserTest {
         onView(withId(R.id.drawer_layout)).perform(DrawerActions.open());
         onView(withId(R.id.nav_view)).check(matches(isDisplayed()));
         onView(withId(R.id.drawer_layout)).check(matches(isOpen()));
-        onView(withId(R.id.nav_send)).check(matches(isEnabled()));
+        onView(withText(R.string.menu_send)).check(matches(isEnabled()));
         onView(withId(R.id.drawer_layout)).perform(DrawerActions.close());
-
-            pressBack();
         onView(withId(R.id.drawer_layout)).check(matches(isClosed()));
 
+        for (int index = 0; index < travelDealList.size(); index++) {
+            TravelDeal travelDeal = travelDealList.get(index);
+
+            onView(withId(R.id.recyclerView_trade_deals)).perform(RecyclerViewActions.actionOnItemAtPosition(index, click()));
+            onView(withId(R.id.textView_title)).check(matches(withText(travelDeal.getTitle()))).check(matches(not(isEnabled())));
+            onView(withId(R.id.textView_description)).check(matches(withText(travelDeal.getDescription()))).check(matches(not(isEnabled())));
+            onView(withId(R.id.textView_price)).check(matches(withText(travelDeal.getPrice()))).check(matches(not(isEnabled())));
+
+            pressBack();
+        }
     }
 
     @Test
